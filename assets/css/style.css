@@ -11,15 +11,13 @@ body {
 
  #appName {
     color: rgb(255,167,10);
+    font-size: 60px;
  }
 
- #fridge {
-    filter: brightness(4000%);
-    filter: contrast(3000%);
-    filter: saturate(500);
-     
-    }
- 
+#fridgeLink:hover {
+   text-decoration: none;
+}
+
  #tagLine {
     color: rgb(13,199,235);
  }
