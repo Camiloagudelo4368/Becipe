@@ -1,4 +1,5 @@
 
+/* Home page */
 body {
     font-family: 'Satisfy', cursive;
     margin: 0 auto;
@@ -13,14 +14,12 @@ body {
  }
 
  #fridge {
-     -webkit-filter: contrast(180%);
-     filter: contrast(3000%);
-     -webkit-filter: saturate(40); 
-     filter: saturate(40);
+    filter: brightness(4000%);
+    filter: contrast(3000%);
+    filter: saturate(500);
      
     }
  
-
  #tagLine {
     color: rgb(13,199,235);
  }
