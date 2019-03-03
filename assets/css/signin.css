@@ -1,0 +1,68 @@
+body{
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    background: no-repeat center center fixed;
+    background-size: cover;
+  
+}
+
+h1{
+    color: rgb(255,167,10);
+    font-size: 60px;
+    height:60%;
+    font-family: 'Satisfy', cursive;
+    text-align: center;
+
+}
+.form-group{
+    text-align: left;
+    height: 80%;
+    color: rgb(255,167,10);
+    font-family: 'Satisfy', cursive;
+    font-size: 18px;
+    font-weight: bold;
+}
+label{
+    font-family: 'Satisfy', cursive;
+    color: rgb(255,167,10);
+}
+
+button{
+    font-family: 'Satisfy', cursive;
+    text-align: left;
+    padding: 1.5%;
+}
+p{
+    font-family: 'Satisfy', cursive;
+    font-size:20px;
+    color: rgb(255,167,10);
+    text-align: center;
+}
+a{
+    font-family: 'Abril Fatface', cursive;
+    font-style: italic;
+    font-size:20px;
+    color: red;
+    text-align: center;
+    font-weight: bolder;
+}
+.form-control{
+    position: relative;
+	font-size: 16px;
+    font-family: 'Satisfy', cursive;
+    padding: 15px;
+}
+  label, input {
+    font-family: 'Satisfy', cursive;
+    font-size: 20px;
+  }
+  form {
+    width: 65%;
+    display: inline-block;
+
+
+  }
+  
+
+  
