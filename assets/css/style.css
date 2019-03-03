@@ -21,3 +21,24 @@ body {
  #tagLine {
     color: rgb(13,199,235);
  }
+
+ .recipe-header{
+   text-align: center;
+}
+.recipe-image{
+   float: right;
+   width: 33%;
+   height: 179px
+}
+.recipe-container{
+   background-color: #ECEFEA;
+   margin: 10px;
+   padding: 19px;
+}
+body{
+   background-color: beige;
+}
+
+.ingredient-label{
+   font-weight: bold;
+}

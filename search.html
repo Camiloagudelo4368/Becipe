@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='./assets/javascript/search.js'></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" value='' placeholder="Add your ingredient here ..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" onclick="addItems()">Add Item</button>
+        </div>
+    </div>
+    <div class="ingredients-container"></div>
+    <button type="button" class="btn btn-secondary btn-lg btn-block" onclick="clearSearch()">CLEAR</button>
+    <div class="results-container-parent container">
+                <div class="results-container-child row"></div>
+    </div>
+
+
+</body>
+</html>
