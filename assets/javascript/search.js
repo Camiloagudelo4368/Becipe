@@ -34,7 +34,7 @@ function callApi(){
         for(let i=0; i<INGREDIENTS.length; i++){
             ingredientslist+= `&allowedIngredient=${INGREDIENTS[i]}`
         }
-        $.ajax({url:`http://api.yummly.com/v1/api/recipes?_app_id=ab4906ff&_app_key=25c71a2c8b446d9ef17b082ae3451972&requirePictures=true${ingredientslist}`}).done(function(response) {
+        $.ajax({url:`https://api.yummly.com/v1/api/recipes?_app_id=ab4906ff&_app_key=25c71a2c8b446d9ef17b082ae3451972&requirePictures=true${ingredientslist}`}).done(function(response) {
             organizeDataInUI(response)
           });
     }
