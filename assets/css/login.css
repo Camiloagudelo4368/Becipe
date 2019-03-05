@@ -23,12 +23,6 @@ h1 {
     margin-bottom: 10px;
 }
 
-label {
-    color: #fdbc00;
-    margin-top: 5px;
-    font-size: 19px;
-    text-align: left;
-}
 
 label {
     color: #fdbc00;
@@ -60,13 +54,6 @@ a:hover {
     color: #CCCCCC;
 }
 
-input {
-    font-size: 16px;
-    text-align: left;
-    width: 100%;
-    position: relative;
-    color: #808080;
-}
 
 input {
     font-size: 16px;
@@ -74,13 +61,8 @@ input {
     width: 100%;
     position: relative;
     padding: 5PX;
-    /* color: #808080; */
-    /* color:#ffffff; */
-    /* color: #fdbc00; */
     color:#ffffff;
     background-color: transparent;
-    border: solid 1px  #808080;
-    border: solid 1px  #A88484;
     border: solid 1px  #696f0b;
 }
 
