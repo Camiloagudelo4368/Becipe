@@ -9,7 +9,9 @@ function addItems(){
     $(".form-control").val('')                      
     // Pushes the new input in into the array of inputs
     INGREDIENTS.push(newIngredient)                 
-    $(".ingredients-container").append(`<div id=${INGREDIENTS.indexOf(`${newIngredient}`)} class="ingredient-wrapper"><button class="btn btn-outline-secondary" value="${newIngredient}" type="button" onclick="deleteIngredient(this.value)">X</button><span class='ingredient'>\t${newIngredient}</span></div>`);
+    $(".ingredients-container").append(`<div id=${INGREDIENTS.indexOf(`${newIngredient}`)} 
+    class="ingredient-wrapper"><button class="btn btn-outline-secondary" value="${newIngredient}" 
+    type="button" onclick="deleteIngredient(this.value)">X</button><span class='ingredient'>\t${newIngredient}</span></div>`);
     // Makes an API call each time a user inputs a new ingredient
     callApi()                                       
 }
@@ -73,7 +75,7 @@ function organizeDataInUI(response){
                             </svg>
                         </div>
                         <h5 class="recipe-rating"> RATING : ${response.matches[i].rating}</h5>
-                        <h5> TIME TO MAKE : ${converNumberOfSecondToReadeableString(response.matches[i].totalTimeInSeconds)} seconds</h5>
+                        <h5> TIME TO MAKE : ${converNumberOfSecondToReadeableString(response.matches[i].totalTimeInSeconds)} minutes</h5>
                         <div class="recipe-flavors"">
                             <div class="recipe-flavors-ul">
                                 <div class="progress">

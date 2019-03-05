@@ -62,6 +62,7 @@ $(document).ready(function () {
                 $('#modalMessage-body').text("Please insert all required fields")
                 $('#modalMessage').modal("show")
             }
+       
         }
     });
 })

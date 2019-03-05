@@ -100,26 +100,8 @@
     <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
     <!-- link to parsley js file -->
     <script src="assets/javascript/parsley.min.js"></script>
-    
-    
-    
-    
     <!-- link to parsley css file -->
     <link rel="stylesheet" href="assets/css/parsley.css">
-    
-    <script type="text/javascript">
-        $(function () {
-            $('#demo-form').parsley().on('field:validated', function () {
-                var ok = $('.parsley-error').length === 0;
-                $('.bs-callout-info').toggleClass('hidden', !ok);
-                $('.bs-callout-warning').toggleClass('hidden', ok);
-            })
-                .on('form:submit', function () {
-                    return true; // Don't submit form for this demo
-                });
-        });
-    </script>
-
     <!-- App javascript file -->
     <script src="assets/Javascript/signin.js"></script>
     <link rel="stylesheet" href="assets/css/login.css">
