@@ -6,88 +6,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Srisakdi|ZCOOL+QingKe+HuangYou" rel="stylesheet">
-    
-     <!-- link to parsley css file -->
-     <link rel="stylesheet" href="/assets/css/parsley.css">
+
     <title>Sign Up</title>
 </head>
 
-<body style="background-image: url(assets/images/signup.jpg)">
-    <h1>Sign Up</h1>
-    <div class="container">
-        <div class="row">
-            <label for="name">Name</label>
-            <input type="text" name="" id="name" aria-describedby=" " placeholder="Enter your name">
-        </div>
-        <br>
-        <div class="row">
-            <label for="email">Email</label>
-            <input type="email" name="" id="email" aria-describedby=" " placeholder="Enter email">
-        </div>
-        <br>
-        <div class="row">
-            <label for="password">Password</label>
-            <input type="password" name="" id="password" aria-describedby=" " placeholder="Password">
-        </div>
-        <br>
-        <div class="row">
-            <label for="confirmPassword">Confirm your password</label>
-            <input type="password" name="" id="confirmPassword" aria-describedby=" " placeholder="Confirm email">
-        </div>
-        <br>
-        <div class="row">
-            <a name=" " id="signUp" class="btn btn-primary" href="#" role="button" data-toggle="modal"
-                data-target="#">Sign Up</a>
-        </div>
-        <br>
-        <div class="row">
-            <!-- &nbsp (Non-breaking Space) represents a space in html -->
-            <p>Already a member &nbsp</p> <a href="signin.html"> Sign In here</a>
-        </div>
-
-        <h2 id="message"></h2>
-
-    </div>
-
-    <!-- Modal User created-->
-    <div class="modal fade" id="modalUserCreated" tabindex="-1" role="dialog" aria-labelledby="modalUserCreated"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalUserCreatedLongTitle">Welcome</h5>
-                    <span aria-hidden="true">&times;</span>
-                 
+<body>
+    <form  id="form" data-parsley-validate="">
+        <div class="content">
+            <h1>Sign Up</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col col-12">
+                        <label for="name">User Name</label>
+                        <input type="text" name="" id="name" placeholder="Insert your user name" autofocus data-parsley-trigger="change" required>
+                        <!-- <input type="text" name="" id="name"> -->
+                    </div>
                 </div>
-                <div id="modalUserCreated-body" class="modal-body text-center">
-
+                <div class="row">
+                    <div class="col col-12">
+                        <label for="email">Email</label>
+                        <input type="email" name="" id="email" placeholder="Insert your email address" data-parsley-trigger="change" required>
+                        <!-- <input type="email" name="" id="email"> -->
+                    </div>
                 </div>
+                <div class="row">
+                    <div class="col col-12">
+                        <label for="password">Password</label>
+                        <input type="password" name="" id="password" placeholder="Insert your Password" data-parsley-trigger="change" required>
+                        <!-- <input type="password" name="" id="password"> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-12">
+                        <label for="confirmPassword">Confirm password</label>
+                        <input type="password" name="" id="confirmPassword" placeholder="Confirm your password" data-parsley-trigger="change" data-parsley-equalto="#password" required>
+                        <!-- <input type="password" name="" id="confirmPassword" > -->
+                    </div>
+                </div>
+                <div class="row buttonRow">
+                    <div class="col col-12 text-center">
+                        <button id="signUp" type="submit" class="btn btn-primary" data-toggle="button">Sign Up</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-12 text-center">
+                        <!-- &nbsp (Non-breaking Space) represents a space in html -->
+                        <p>Already a member?&nbsp<a href="signin.html">Sign In here</a></p>
+                    </div>
+                </div>
+
+                <h2 id="message"></h2>
             </div>
         </div>
-    </div>
-
-
-    <!-- Modal Message-->
-    <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="modalMessageCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalMessageLongTitle">Important Message</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <!-- Modal User created-->
+        <div class="modal fade" id="modalUserCreated" tabindex="-1" role="dialog" aria-labelledby="modalUserCreated"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalUserCreatedLongTitle">Welcome</h5>
                         <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div id="modalMessage-body" class="modal-body">
+                    </div>
+                    <div id="modalUserCreated-body" class="modal-body text-center">
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
+
+        <!-- Modal Message-->
+        <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="modalMessageCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalMessageLongTitle">Important Message</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="modalMessage-body" class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" default class="btn btn-primary" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -98,10 +106,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
     <!-- link to parsley js file -->
-    <script src="/assets/javascript/parsley.min.js"></script>
+    <script src="assets/javascript/parsley.min.js"></script>
+    <!-- link to parsley css file -->
+    <link rel="stylesheet" href="assets/css/parsley.css">
     <!-- App javascript file -->
     <script src="assets/Javascript/signup.js"></script>
-    <link rel="stylesheet" href= "assets/css/signup.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+
 </body>
 
 </html>

@@ -1,81 +1,61 @@
-body{
-    margin: 0 auto;
-    padding: 0;
-    text-align: center;
-    background: no-repeat center center fixed;
-    background-size: cover;
-  
+body {
+  padding: 0;
+  background: no-repeat center center fixed;
+  background-size: cover;
+  background-image: url(../images/signup.jpg)
 }
 
-h1{
-    color: rgb(255,167,10);
-    font-size: 60px;
-    height:60%;
-    font-family: 'Satisfy', cursive;
-    text-align: center;
+.content {
+  padding: 20px;
+  max-width: 660px;
+  margin: 0 auto;
+}
 
+h1 {
+  color: #cccccc;
+  font-size: 60px;
+  height: 60%;
+  font-family: 'Satisfy', cursive;
+  text-align: center;
 }
-.form-group{
-   
-    text-align: left;
-    height: 10%;
-    color: rgb(255,167,10);
-    font-family: 'Satisfy', cursive;
-    font-size: 18px;
-    font-weight: bold;
-}
-label{
-    font-family: 'Satisfy', cursive;
-    color: rgb(255,167,10);
-    text-align: center;
 
+label {
+  color: #fdbc00;
+  margin-top: 5px;
+  font-size: 19px;
+  text-align: left;
 }
+
 p {
-    font-family: 'Satisfy', cursive;
-    font-size:20px;
-    color: rgb(255,167,10);
-    /* text-align: center; */
-}
-a{
-    font-family: 'Abril Fatface', cursive;
-    font-style: italic;
-    font-size:20px;
-    text-align: center;
-    font-weight: bolder;
-    display: inline-block;
+  font-family: 'Satisfy', cursive;
+  font-size: 25px;
+  color: #ffffff;
+  font-weight: bold;
 }
 
-.form-control{
-    position: relative;
-	font-size: 16px;
-    font-family: 'Satisfy', cursive;
-    padding: 15px;
-    text-align: center;
+a {
+  font-family: 'Abril Fatface', cursive;
+  font-style: italic;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bolder;
+  display: inline-block;
+  color: #FFC4FF;
+  margin: 10px;
 }
-  label{
-    font-family: 'Satisfy', cursive;
-    font-size: 20px;
-    text-align: right;
-    width: 45%;
 
-  }
-  input{
-    font-family: 'Satisfy', cursive;
-    font-size: 15px;
-    text-align: left;
-    width: 40%;
-    position: relative;
-   
-  }
-.container {
-    width: 35%;
-    height: 20%;
-    display: inline-block;
-    text-align: center;
-    display: inline-block;
+a:hover {
+  color: #CCCCCC;
+}
 
+input {
+  font-size: 16px;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  color: #808080;
+}
 
-  }
-
-
-  
+.col {
+  margin-top: 15px;
+}
