@@ -14,7 +14,7 @@ $(document).ready(function () {
 
     var database = firebase.database();
 
-
+    
     //Register
     $("#signIn").on("click", event => {
         event.preventDefault();
@@ -25,7 +25,6 @@ $(document).ready(function () {
             email: $('#email').val(),
             password: $("#password").val(),
         };
-
 
         if (data.email != '' && data.password != '') {
             let user = null;

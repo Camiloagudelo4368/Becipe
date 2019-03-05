@@ -8,29 +8,30 @@
     <link href="https://fonts.googleapis.com/css?family=Srisakdi|ZCOOL+QingKe+HuangYou" rel="stylesheet">
     </head>
     <!-- link to parsley css file -->
-    <link rel="stylesheet" href="assets/css/parsley.css">
+    <link rel="stylesheet" href="/assets/css/parsley.css">
     <title>Sign In</title>
 </head>
 <body style= "background-image: url(assets/images/signin.jpeg)">
 
     <h1>Sign In</h1>
 
-    <form> 
-      <div class="form-group">
-     <label for="exampleInputEmail1">Email address</label>
-     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+    <form id="sign-in" data-parsley-validate=""> 
+        <div class="form-group">
+                
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" data-parsley-type="email" data-trigger="change"  >
+        </div>
 
  
-<div class= "form-group">
-  <label for="password">Password</label>
-  <input type="password" class="form-control" id="password" aria-describedby="passwordHelp" placeholder="Password">
-  </div>
-</div>
+        <div class= "form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" aria-describedby="passwordHelp" placeholder="Password" data-parsley-required>
+        </div>
 
-  <button id="signIn">Sign in</button>
-  <!-- &nbsp (Non-breaking Space) represents a space in html -->
-  <p>Create An Account &nbsp</p><a href="signup.html">Sign Up here</a>
-</form>
+        <button id="signIn" type="submit">Sign in</button>
+        <!-- &nbsp (Non-breaking Space) represents a space in html -->
+        <p>Create An Account &nbsp</p><a href="signup.html">Sign Up here</a>
+    </form>
 
 
     <!-- Modal User created-->
@@ -72,7 +73,8 @@
     </div>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/javascript/parsley.min.js"></script>
+   
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -80,10 +82,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
     <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <!-- link to parsley js file -->
+    <script src="/assets/javascript/parsley.min.js"></script>
     <!-- App javascript file -->
-    <script src="assets/Javascript/signin.js"></script>
+    <script src="/assets/Javascript/signin.js"></script>
     <link rel="stylesheet" href= "assets/css/signin.css">
 </body>
 
