@@ -1,120 +1,193 @@
-//VARIABLES------------------------------------------------------------------------------
-let INGREDIENTS = []
+ // Camilo to retrieve the user sign in information
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCbP-jTtItFgvCAAW62n6ieMTpnYlBVtOk",
+        authDomain: "becipe-9368d.firebaseapp.com",
+        databaseURL: "https://becipe-9368d.firebaseio.com",
+        projectId: "becipe-9368d",
+        storageBucket: "",
+        messagingSenderId: "543729845832"
+    };
 
-//FUNCTIONS -------------------------------------------------------------------------------
-function addItems(){
-    // Gets the value of the new ingredient from user input
-    let newIngredient = $(".form-control").val()    
-    // Resets the value of the input. 
-    $(".form-control").val('')                      
-    // Pushes the new input in into the array of inputs
-    INGREDIENTS.push(newIngredient)                 
-    $(".ingredients-container").append(`<div id=${INGREDIENTS.indexOf(`${newIngredient}`)} class="ingredient-wrapper"><button class="btn btn-outline-secondary" value="${newIngredient}" type="button" onclick="deleteIngredient(this.value)">X</button><span class='ingredient'>\t${newIngredient}</span></div>`);
-    // Makes an API call each time a user inputs a new ingredient
-    callApi()                                       
-}
+    firebase.initializeApp(config);
 
-function deleteIngredient(ingredient){
-    let idOfIngredientToRemove = INGREDIENTS.indexOf(`${ingredient}`)
-    INGREDIENTS.splice(idOfIngredientToRemove,1);
-    console.log("INGREDIENTS: ", INGREDIENTS)
-    $(`#${idOfIngredientToRemove}`).remove();
-    if(INGREDIENTS.length === 0){
-        $(".results-container-parent").remove()
-    }else{
-        callApi()
-    }
-}
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+        //   alert(" User is signed in.")
+            console.log(user)
+            console.log(user.uid);   // this prints fine
+            // console.log(user.displayName);   // this prints fine
 
-function callApi(){
-    if(INGREDIENTS.length === 0){
-        return
-    }else{
-        var ingredientslist = ''
-        for(let i=0; i<INGREDIENTS.length; i++){
-            ingredientslist+= `&allowedIngredient=${INGREDIENTS[i]}`
+            $("#userName").text("Hello " + user.displayName);
+
+        } else {
+          // No user is signed in.
         }
-        $.ajax({url:`https://api.yummly.com/v1/api/recipes?_app_id=ab4906ff&_app_key=25c71a2c8b446d9ef17b082ae3451972&requirePictures=true${ingredientslist}`}).done(function(response) {
-            organizeDataInUI(response)
-          });
+      });
+
+// ---------------------------------------------------------------------- //
+    
+    var allowedIngredients = [];
+
+    var excludedIngredients = [
+        "rice",
+        "beef",
+        "chicken",
+        "pork",
+        "carrot",
+        "apple"
+    ];
+
+    /**
+     *
+    Create buttons of the elements in an array  
+     * @param {*} _array array of srings with the elements to be created
+     */
+    function createButtons(_array) {
+
+        _array.forEach(_element => {
+
+            $(".buttons").prepend(`<button class="btnCity btn btn-outline-info">${_element}`);
+        });
+
     }
-}
 
-function organizeDataInUI(response){
-    $(".results-container-parent").remove()  // This removes old data by removing the child container
-    // Then we append a new child to the parent div so organizeDataInUI() function can append to.
-    $("body").append('<div class="results-container-parent container"></div>')// creates a new fresh container
-    if(response){
-        if(response.totalMatchCount === 0 || INGREDIENTS.length === 0 ){
-            return 
-        }else{
-            let rowNumber = 0
-            for(let i=0; i<response.matches.length; i++){
-                if(i % 2 === 0){ // means the number is even
-                    rowNumber += 1
-                    $(`.results-container-parent`).append(`<div id="row-${rowNumber}" class="results-container-child row"></div>`)
-                }
-                $(`#row-${rowNumber}`).append(`
-                    <div id="${i}" class="recipe-container col rounded">
-                        <div class="recipe-header">
-                            <h3 class="recipe-name">${response.matches[i].recipeName}</h3>
-                            <h5 class="recipe-source">SOURCE: ${response.matches[i].sourceDisplayName}</h5>
-                        </div>
-                        <div class="recipe-image-container">
-                            <img class="recipe-image" src="${response.matches[i].imageUrlsBySize['90']}">
-                            <div class="recipe-ingredients-${i}"><span class="ingredient-label">Ingredients:</span></div>
-                        </div>
-                        <div class="recipe-heart-container">
-                        <?xml version="1.0" ?>
-                            <svg  class="recipe-heart-svg" height="24" version="1.1" width="24" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-                                <g transform="translate(0 -1028.4)">
-                                    <path d="m7 1031.4c-1.5355 0-3.0784 0.5-4.25 1.7-2.3431 2.4-2.2788 6.1 0 8.5l9.25 9.8 9.25-9.8c2.279-2.4 2.343-6.1 0-8.5-2.343-2.3-6.157-2.3-8.5 0l-0.75 0.8-0.75-0.8c-1.172-1.2-2.7145-1.7-4.25-1.7z" fill="#c0392b"/>
-                                </g>
-                            </svg>
-                        </div>
-                        <h5 class="recipe-rating"> RATING : ${response.matches[i].rating}</h5>
-                        <h5> TIME TO MAKE : ${converNumberOfSecondToReadeableString(response.matches[i].totalTimeInSeconds)} seconds</h5>
-                        <div class="recipe-flavors"">
-                            <div class="recipe-flavors-ul">
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width:${Math.floor(response.matches[i].flavors!== null?response.matches[i].flavors['bitter']*100:0)}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${Math.floor(response.matches[i].flavors!== null?response.matches[i].flavors['bitter']*100:0)}% Bitter</div>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width:${ Math.floor(response.matches[i].flavors !== null ? response.matches[i].flavors['meaty']*100  : 0)}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${ Math.floor(response.matches[i].flavors !== null ? response.matches[i].flavors['meaty']*100  : 0)}% Meaty</div>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width:${ Math.floor(response.matches[i].flavors !== null ? response.matches[i].flavors['piquant']*100  : 0)}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${ Math.floor(response.matches[i].flavors !== null ? response.matches[i].flavors['piquant']*100  : 0)}% Piquant</div>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width:${ Math.floor(response.matches[i].flavors !== null ? response.matches[i].flavors['salty']*100  : 0)}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${ Math.floor(response.matches[i].flavors !== null ? response.matches[i].flavors['salty']*100  : 0)}% Solty</div>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width:${ Math.floor(response.matches[i].flavors !== null ? response.matches[i].flavors['sour']*100  : 0)}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${ Math.floor(response.matches[i].flavors !== null ? response.matches[i].flavors['sour']*100  : 0)}% Sour</div>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width:${ Math.floor(response.matches[i].flavors !== null ? response.matches[i].flavors['sweet']*100  : 0)}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${ Math.floor(response.matches[i].flavors !== null ? response.matches[i].flavors['sweet']*100  : 0)}% Sweet</div>
-                                </div>
-                            </div>    
-                        </div>
+    createButtons(allowedIngredients);
 
-                    <div>            
-                `)
-                for(let j=0; j<response.matches[i].ingredients.length; j++){
-                    $(`.recipe-ingredients-${i}`).append(`<div class="recipe-ingredient">${response.matches[i].ingredients[j]}</div>`)
-                }
+    // Event to create butttons
+    $("#insert").on("click", function (event) {
+        event.preventDefault();
+
+        let _text = $("#txtSearch").val();
+
+        // if the text is not empty then execute it
+        if (_text.trim() !== "") {
+
+            // if the button does not exist then create it
+            if (allowedIngredients.indexOf(_text) === -1) {
+
+                // Insert the input value into the array
+                allowedIngredients.push(_text);
+
+                // clear the buttons div to create everithind again
+                $(".buttons").empty();
+
+                // call function to create the buttons
+                createButtons(allowedIngredients);
+
+                $("#txtSearch").val("");
+
+                $(".images").empty();
+
+                searchRecipe();
+
+            }
+            else {
+                alert("The ingredient is already on the list");
             }
         }
+        else {
+            alert("Please insert an ingredient");
+        }
+    })
+
+    $("#clearText").on("click", function (event) {
+        $("#txtSearch").val("");
+    })
+
+    // click event of every element with the class btnCity
+    // $(document).on("click", ".btnCity", event => {
+function searchRecipe(){
+        event.preventDefault();
+
+        if (allowedIngredients.length === 0) {
+            return
+        }
+        else {
+            var allowedIngredientsUrl = ''
+            var excludedIngredientsUrl = ''
+
+            for (var i = 0; i < allowedIngredients.length; i++) {
+                // Add allowed ingredients
+                allowedIngredientsUrl += "&allowedIngredient=" + allowedIngredients[i]
+            };
+
+            // store the index of element to be remove from excluded ingredients
+            var idOfIngredientToRemove = excludedIngredients.indexOf(allowedIngredients[i]);
+
+            // delete allowed ingredient from excluded ingredients list
+            excludedIngredients.splice(idOfIngredientToRemove, 1);
+
+
+            for (var i = 0; i < excludedIngredients.length; i++) {
+
+                //Format the url to send it into API request as excluded elements 
+                excludedIngredientsUrl += "&excludedIngredient=" + excludedIngredients[i]
+            };
+            console.log("https://api.yummly.com/v1/api/recipes?_app_id=ab4906ff&_app_key=25c71a2c8b446d9ef17b082ae3451972&requirePictures=true" + allowedIngredientsUrl + excludedIngredientsUrl);
+            // Call the API
+            $.ajax({
+                method: "GET",
+                url: "https://api.yummly.com/v1/api/recipes?_app_id=ab4906ff&_app_key=25c71a2c8b446d9ef17b082ae3451972&requirePictures=true" + allowedIngredientsUrl + excludedIngredientsUrl
+
+            })
+            // ).then(response => {
+            //     organizeDataInUI(response);
+            // });
+            .then(function (response) {
+
+                console.log(response)
+
+                // store the array from the response
+                var _data = response.matches;
+
+                for (var i = 0; i < _data.length; i++) {
+
+                    // variable to store the element
+                    var _element = _data[i];
+
+                    var _urlStillGif = _element.imageUrlsBySize['90'];
+                    var _urlYumm = "http://www.yummly.com/recipe/" + _element.id +"";
+                    var _rating = _element.rating;
+                    var _title = _element.recipeName;
+
+
+                    $(".images").append(
+                        `<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <div class="card_content card text-center">
+                        <div class="card-header">
+                        ${_title}
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <img id="img${i}" class="responseImage card-img-top" src="${_urlStillGif}" active="0" data-still="${_urlYumm}">    
+                                <footer class="blockquote-footer"><cite title="Source Title">Rating: ${_rating}</cite></footer>
+                            </blockquote>
+                        </div>
+                        </div>
+                    </div>`);
+                }
+            })
+        }
+
+    };
+
+    // event for each image
+    $(document).on("click", ".responseImage", event => {
+
+        var _imageId = event.currentTarget.id;
+        // console.log(_imageId)
+
+        var _image = $("#" + _imageId);
+        window.location.href = _image.attr("data-still");
+
+    });
+
+    
+    function clearSearch(){
+        $(".images").empty();
+        $(".buttons").empty();
+        allowedIngredients = [];
+        excludedIngredients = [];
     }
-}
-
-function converNumberOfSecondToReadeableString(someNumberOfSeconds){
-    var date = new Date(null);
-    date.setSeconds(someNumberOfSeconds); // specify value for SECONDS here
-    return date.toISOString().substr(11, 8);
-}
-
-function clearSearch(){
-    INGREDIENTS = []
-    $(".results-container-parent").remove()
-    $(".ingredient-wrapper").remove()
-}
+// });

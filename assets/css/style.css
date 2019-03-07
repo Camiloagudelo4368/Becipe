@@ -7,6 +7,7 @@ body {
     text-align: center;
     background: no-repeat center center fixed;
     background-size: cover;      
+    background-color: beige;
 }
 
  #appName {
@@ -35,10 +36,12 @@ body {
    margin: 10px;
    padding: 19px;
 }
-body{
-   background-color: beige;
-}
 
 .ingredient-label{
    font-weight: bold;
+   text-align:left;
+}
+
+.ingredient{
+   margin-right: 5px;
 }
