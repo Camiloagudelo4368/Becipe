@@ -1,29 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src='./assets/javascript/search.js'></script>
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bescipe</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+  <link rel="stylesheet" href="assets/css/search.css">
 </head>
+
 <body>
+    <header>Bescipe <span id="userName">Hi</span></header>
     
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" value='' placeholder="Add your ingredient here ..." aria-label="Recipient's username" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" onclick="addItems()">Add Item</button>
+  <div class="container">
+    
+    <div class="row">
+      <div class="search col-lg-6 col-md-12 col-sm-12 col-xs-12">
+        <div class="input-group mb-3">
+          <input id="txtSearch" type="text" class="form-control" placeholder='Insert an ingredient'/>
+          <div class="input-group-append">            
+            <button class="btn" type="button" id="clearText">x</button>
+            <button class="btn btn-outline-secondary" type="button" id="insert">Save</button>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="ingredients-container"></div>
-    <button type="button" class="btn btn-secondary btn-lg btn-block" onclick="clearSearch()">CLEAR</button>
-    <div class="results-container-parent container">
-                <div class="results-container-child row"></div>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header text-center font-weight-bold">
+            Ingredients
+          </div>
+          <br>
+          
+          <div class="buttons card-body">
+          </div>
+        </div>
+      </div>
     </div>
-
-
+    <button type="button" class="btn btn-secondary btn-sm btn-block" onclick="clearSearch()">CLEAR</button>
+    <div class="images row">
+    </div>    
+    <div class="col-12 footer">
+      <footer>Copyright© Camilo Agudelo </footer>
+    </div>
+  </div>
+  <script src="assets/javascript/search.js"></script>
 </body>
+
 </html>
