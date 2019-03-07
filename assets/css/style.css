@@ -2,9 +2,7 @@
 /* Home page */
 body {
     font-family: 'Satisfy', cursive;
-    margin: 0 auto;
-    padding: 0;
-    text-align: center;
+    
     background: no-repeat center center fixed;
     background-size: cover;      
     background-color: beige;
@@ -13,6 +11,19 @@ body {
  #appName {
     color: rgb(255,167,10);
     font-size: 60px;
+    
+ }
+/* sign in and sign up */
+ .nav-link {
+    font-size: 30px;
+ }
+
+ #logoDiv {
+   
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    margin-top: 150px;
  }
 
 #fridgeLink:hover {
