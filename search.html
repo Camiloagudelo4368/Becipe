@@ -6,50 +6,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bescipe</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
-  <link rel="stylesheet" href="assets/css/search.css">
 </head>
 
 <body>
+  <form>
     <header>Bescipe <span id="userName">Hi</span></header>
-    
-  <div class="container">
-    
-    <div class="row">
-      <div class="search col-lg-6 col-md-12 col-sm-12 col-xs-12">
-        <div class="input-group mb-3">
-          <input id="txtSearch" type="text" class="form-control" placeholder='Insert an ingredient'/>
-          <div class="input-group-append">            
-            <button class="btn" type="button" id="clearText">x</button>
-            <button class="btn btn-outline-secondary" type="button" id="insert">Save</button>
+    <div class="container">
+
+      <div class="row">
+        <div class="search col-lg-6 col-md-12 col-sm-12 col-xs-12">
+          <div class="input-group mb-3">
+
+            <input id="txtSearch" type="text" class="form-control" placeholder='Insert an ingredient' autofocus />
+            <div class="input-group-append">
+              <button class="btn" type="button" id="clearText">x</button>
+              <button class="btn btn-outline-secondary" type="submit" id="insert">Save</button>
+              <a id="favoritesLink" class="text-right" style="margin-left :20px" href="#">Favorites</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header text-center font-weight-bold">
+              Ingredients
+            </div>
+            <br>
+
+            <div class="buttons card-body">
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-secondary btn-sm btn-block" onclick="clearSearch()">CLEAR</button>
+      <div class="images row">
+      </div>
+      <div class="col-12 footer">
+        <footer>Copyright© Camilo Agudelo </footer>
+      </div>
+    </div>
+
+    <!-- Modal Message-->
+    <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="modalMessageCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalMessageLongTitle">Important Message</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div id="modalMessage-body" class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-header text-center font-weight-bold">
-            Ingredients
-          </div>
-          <br>
-          
-          <div class="buttons card-body">
-          </div>
-        </div>
-      </div>
-    </div>
-    <button type="button" class="btn btn-secondary btn-sm btn-block" onclick="clearSearch()">CLEAR</button>
-    <div class="images row">
-    </div>    
-    <div class="col-12 footer">
-      <footer>Copyright© Camilo Agudelo </footer>
-    </div>
-  </div>
+  </form>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+  <link rel="stylesheet" href="assets/css/search.css">
   <script src="assets/javascript/search.js"></script>
+
 </body>
 
 </html>
