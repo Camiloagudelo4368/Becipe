@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // calling parsley validation
-    $("form[name=form]").parsley();
+    $("form[name=signInForm]").parsley();
 
     // Initialize Firebase
     var config = {
