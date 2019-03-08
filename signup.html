@@ -5,41 +5,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css?family=Srisakdi|ZCOOL+QingKe+HuangYou" rel="stylesheet">
 
     <title>Sign Up</title>
 </head>
 
 <body>
-    <form  id="form" data-parsley-validate="">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+
+        <div class="container">
+                    
+            <a class="navbar-brand" href="index.html">
+            <h1 id="appName">Bescipe</h1>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+                         
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto ">
+        
+                    <li class="nav-item active mb-4">
+                        <a class="nav-link signInSignUpLinks" href="signin.html" style="color: rgb(13,199,235)">Sign in
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                
+                    <li class="nav-item mb-4">
+                        <a class="nav-link signInSignUpLinks" href="signup.html" style="color: rgb(13,199,235)">Sign up</a>
+                    </li>
+        
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <form  id="signUpForm" data-parsley-validate="">
         <div class="content">
-            <h1>Sign Up</h1>
+            <!-- <h1 id="signUpHeading">Sign Up</h1> -->
             <div class="container">
                 <div class="row">
                     <div class="col col-12">
-                        <label for="name">User Name</label>
-                        <input type="text" name="" id="name" placeholder="Insert your user name" autofocus data-parsley-trigger="change" required>
+                        <label id="label" for="name">User Name</label>
+                        <input class="textInputs" type="text" name="" id="name" placeholder="Insert your user name" autofocus data-parsley-trigger="change" required>
                         <!-- <input type="text" name="" id="name"> -->
                     </div>
                 </div>
                 <div class="row">
                     <div class="col col-12">
-                        <label for="email">Email</label>
-                        <input type="email" name="" id="email" placeholder="Insert your email address" data-parsley-trigger="change" required>
+                        <label id="label" for="email">Email</label>
+                        <input class="textInputs" type="email" name="" id="email" placeholder="Insert your email address" data-parsley-trigger="change" required>
                         <!-- <input type="email" name="" id="email"> -->
                     </div>
                 </div>
                 <div class="row">
                     <div class="col col-12">
-                        <label for="password">Password</label>
-                        <input type="password" name="" id="password" placeholder="Insert your Password" data-parsley-trigger="change" required>
+                        <label id="label" for="password">Password</label>
+                        <input class="textInputs" type="password" name="" id="password" placeholder="Insert your Password" data-parsley-trigger="change" required>
                         <!-- <input type="password" name="" id="password"> -->
                     </div>
                 </div>
                 <div class="row">
                     <div class="col col-12">
-                        <label for="confirmPassword">Confirm password</label>
-                        <input type="password" name="" id="confirmPassword" placeholder="Confirm your password" data-parsley-trigger="change" data-parsley-equalto="#password" required>
+                        <label id="label" for="confirmPassword">Confirm password</label>
+                        <input class="textInputs" type="password" name="" id="confirmPassword" placeholder="Confirm your password" data-parsley-trigger="change" data-parsley-equalto="#password" required>
                         <!-- <input type="password" name="" id="confirmPassword" > -->
                     </div>
                 </div>
@@ -48,12 +80,12 @@
                         <button id="signUp" type="submit" class="btn btn-primary" data-toggle="button">Sign Up</button>
                     </div>
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col col-12 text-center">
-                        <!-- &nbsp (Non-breaking Space) represents a space in html -->
-                        <p>Already a member?&nbsp<a href="signin.html">Log In here</a></p>
+                        &nbsp (Non-breaking Space) represents a space in html
+                        <p id="textCreateAccount">Already a member?&nbsp<a id="signUpLink" href="signin.html">Log In here</a></p>
                     </div>
-                </div>
+                </div> -->
 
                 <h2 id="message"></h2>
             </div>
@@ -96,6 +128,10 @@
             </div>
         </div>
     </form>
+
+    <div class="col-12 footer">
+        <footer>Copyright© Bescipe </footer>
+    </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
