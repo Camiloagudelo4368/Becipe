@@ -1,7 +1,25 @@
 body {
     margin: 10px, 0, 20px 0;
     /* margin-bottom: 1O0px; */
+    padding: 0;
+    background: no-repeat center center fixed;
+    background-size: cover;
+    background-image: url(../images/Irish-Carrots-1.jpg);
+    /* background-image: url(../images/signup.jpg); */
+    background-image: blur;
 }
+
+#appName {
+    color: rgb(255,167,10);
+    font-size: 60px;
+    font-family: 'Satisfy', cursive;
+    
+ }
+/* sign in and sign up */
+ .signInSignUpLinks {
+    font-size: 30px;
+    font-family: 'Satisfy', cursive;
+ }
 
 .container {
     max-width: 960px;
@@ -14,11 +32,12 @@ header {
     font-size: 25px;
     text-align: center;
     padding: 20px;
-    background-color: #5097B8;
-    color: #ffff4f;
+    /* background-color: #5097B8; */
+    color: rgb(230, 243, 236);
     margin-bottom: 20px;
     /* position:fixed; */
-    z-index: 2;
+    /* z-index: 2; */
+     font-family: 'Satisfy', cursive;
 }
 
 .search {

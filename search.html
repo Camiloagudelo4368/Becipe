@@ -6,23 +6,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bescipe</title>
+  <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+  <link rel="stylesheet" href="assets/css/search.css">
 </head>
 
 <body>
   <form>
-    <header>Bescipe <span id="userName">Hi</span></header>
-    <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+
+      <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+          <h1 id="appName">Bescipe</h1>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto ">
+
+            <li class="nav-item active mb-4">
+              <!-- <a class="nav-link signInSignUpLinks" href="signin.html" style="color: rgb(13,199,235)">Sign in -->
+                  <!-- <a id="favoritesLink" class="text-right" style="margin-left :20px" href="#">Favorites</a> -->
+
+                  <a id="favoritesLink" class="nav-link signInSignUpLinks" href="#" style="color: rgb(13,199,235)">Favorites
+              </a>
+            </li>
+
+            <li class="nav-item active mb-4">
+              <a class="nav-link signInSignUpLinks" href="signin.html" style="color: rgb(13,199,235)">Sign in
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+
+            <li class="nav-item mb-4">
+              <a class="nav-link signInSignUpLinks" href="signup.html" style="color: rgb(13,199,235)">Sign up</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <header><span id="userName">Hi</span></header>
+    
+
+    <div class="container outsideContainer">
 
       <div class="row">
         <div class="search col-lg-6 col-md-12 col-sm-12 col-xs-12">
           <div class="input-group mb-3">
-
-            <input id="txtSearch" type="text" class="form-control" placeholder='Insert an ingredient' autofocus />
+            <input id="txtSearch" type="text" class="form-control" placeholder='Insert an ingredient' />
             <div class="input-group-append">
-              <button class="btn" type="button" id="clearText">x</button>
-              <button class="btn btn-outline-secondary" type="submit" id="insert">Save</button>
-              <a id="favoritesLink" class="text-right" style="margin-left :20px" href="#">Favorites</a>
+              <button class="btn btn-info" type="button" id="clearText">x</button>
+              <button class="btn btn-primary" type="submit" id="insert">Save</button>
             </div>
           </div>
         </div>
@@ -44,7 +89,7 @@
       <div class="images row">
       </div>
       <div class="col-12 footer">
-        <footer>Copyright© Camilo Agudelo </footer>
+        <footer>Copyright© Bescipe </footer>
       </div>
     </div>
 
@@ -68,20 +113,18 @@
         </div>
       </div>
     </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script> -->
+    <script src="assets/javascript/search.js"></script>
   </form>
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
-  <link rel="stylesheet" href="assets/css/search.css">
-  <script src="assets/javascript/search.js"></script>
-
 </body>
 
 </html>

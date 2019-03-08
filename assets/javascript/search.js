@@ -120,13 +120,13 @@ $("#insert").on("click", function (event) {
         else {
             // show message on modal
             $('#modalMessage-body').text('The ingredient is already on the list', ['danger'])
-            $('#modalMessage').modal("show") 
+            $('#modalMessage').modal("show")
         }
     }
     else {
         // show message on modal
         $('#modalMessage-body').text('Please insert an ingredient', ['danger'])
-        $('#modalMessage').modal("show")        
+        $('#modalMessage').modal("show")
     }
 })
 
@@ -366,4 +366,5 @@ function clearSearch() {
     $(".images").empty();
     $(".buttons").empty();
     $("#txtSearch").val("");
+    allowedIngredients = [];
 }
