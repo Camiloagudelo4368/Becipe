@@ -11,52 +11,57 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark ">
-   
-        <div class="container">
-                 
-            <a class="navbar-brand" href="index.html">
-            <h1 id="appName">Bescipe</h1>
-            </a>
-            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-                 
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto ">
-        
-                    <li class="nav-item active mb-4">
-                        <a class="nav-link signInSignUpLinks" href="signin.html" style="color: rgb(13,199,235)">Sign in
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-        
-                    <li class="nav-item mb-4">
-                        <a class="nav-link signInSignUpLinks" href="signup.html" style="color: rgb(13,199,235)">Sign up</a>
-                    </li>
-        
-                </ul>
-            </div>
-        </div>
-    </nav>
-   
     <form id="signInForm" data-parsley-validate="">
+        <nav class="navbar navbar-expand-lg navbar-dark ">
+
+            <div class="container">
+
+                <a class="navbar-brand" href="index.html">
+                    <h1 id="appName">Bescipe</h1>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto ">
+
+                        <li class="nav-item active mb-4">
+                            <a class="nav-link signInSignUpLinks" href="signin.html" style="color: rgb(13,199,235)">Sign
+                                in
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item mb-4">
+                            <a class="nav-link signInSignUpLinks" href="signup.html" style="color: rgb(13,199,235)">Sign
+                                up</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
         <!-- <form> -->
         <div class="content">
             <!-- <h1 id="logIntoBescipeHeading">Log into Bescipe</h1> -->
             <div class="container">
                 <div class="row">
                     <div class="col col-12">
-                        <label  id="label" for="email">Email</label>
-                        <input class="textInputs" type="email" id="email" placeholder="Insert your email address" autofocus
-                            data-parsley-trigger="change" required />
+                        <label id="label" for="email">Email</label>
+                        <input class="textInputs" type="email" id="email" placeholder="Insert your email address"
+                            autofocus data-parsley-trigger="change" required />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col col-12">
                         <label id="label" for="password">Password</label>
-                        <input class="textInputs" type="password" id="password" placeholder="Insert your Password" data-parsley-trigger="change" required />
+                        <input class="textInputs" type="password" id="password" placeholder="Insert your Password"
+                            data-parsley-trigger="change" required />
                     </div>
                 </div>
                 <div class="row">
@@ -78,7 +83,7 @@
                 <h2 id="message"></h2>
             </div>
         </div>
-    
+
         <!-- Modal User created-->
         <div class="modal fade" id="modalUserCreated" tabindex="-1" role="dialog" aria-labelledby="modalUserCreated"
             aria-hidden="true">
@@ -96,26 +101,26 @@
         </div>
 
 
-            <!-- Modal Message-->
-            <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="modalMessageCenterTitle"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalMessageLongTitle">Important Message</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div id="modalMessage-body" class="modal-body">
+        <!-- Modal Message-->
+        <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="modalMessageCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalMessageLongTitle">Important Message</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="modalMessage-body" class="modal-body">
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
-                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
                     </div>
                 </div>
             </div>
+        </div>
     </form>
 
     <div class="col-12 footer">
