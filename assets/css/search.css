@@ -53,7 +53,7 @@ header {
 }
 
 .btnIngredient:hover button.btnDelete {
-    display: inherit;
+    display: inherit; 
 }
 
 /* .btnIngredient:hover::before{
@@ -100,6 +100,47 @@ header {
     bottom: 0;
     left: 0;
 }
+
+#txtSearch{
+    
+    color: #ffffff;
+    background-color: transparent;
+    border: solid 2px #696f0b;
+}
+.card-header{
+    color: #ffffff;
+    background-color: transparent;
+    border: solid 2px #696f0b;
+}
+
+
+ .card{
+    border: solid 2px #696f0b;
+    background-color: transparent;
+ }
+
+ .btn-secondary, .btn-primary{
+    border: solid 1px #696f0b;
+    background-color: #696f0b;
+ }
+
+ .footer{
+     background-color: black;
+     border: 2px black solid;
+ }
+
+ .btn-info{
+     background-color: red;
+     border: 1px red solid;
+ }
+ .btn-outline-info {
+    color: rgb(255,167,10);
+    border-color:rgb(255,167,10);
+}
+.text-left{
+    color: rgb(255,167,10);
+}
+
 
 @media screen and (max-width: 980px) {
     .responseImage {
