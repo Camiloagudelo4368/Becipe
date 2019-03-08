@@ -44,9 +44,22 @@ header {
     margin-bottom: 20px;
 }
 
-.btnCity {
+.btnIngredient {
     margin: 3px;
 }
+
+.btnIngredient:hover buttom.btnName {
+    display: none;
+}
+
+.btnIngredient:hover button.btnDelete {
+    display: inherit;
+}
+
+/* .btnIngredient:hover::before{
+    content: "Remove" */
+
+/* } */
 
 .responseImage {
     margin-bottom: 10px;
@@ -61,11 +74,15 @@ header {
 
 .card_content {
     margin-top: 10px;
-    height: 320px;
+    /* height: 350px; */
 }
 
 .images {
     margin-bottom: 50px;
+}
+
+.favImage:hover {
+    cursor: pointer;
 }
 
 .footer {
@@ -93,7 +110,7 @@ header {
     }
     .card_content {
         margin-top: 10px;
-        height: 420px;
+        /* height: 420px; */
     }
 }
 
@@ -106,7 +123,7 @@ header {
     }
     .card_content {
         margin-top: 10px;
-        height: 420px;
+        /* height: 420px; */
     }
 }
 
@@ -119,6 +136,6 @@ header {
     }
     .card_content {
         margin-top: 10px;
-        height: 320px;
+        /* height: 320px; */
     }
 }
