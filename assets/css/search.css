@@ -4,8 +4,10 @@ body {
     padding: 0;
     background: no-repeat center center fixed;
     background-size: cover;
-    background-image: url(../images/Irish-Carrots-1.jpg);
+    /* background-image: url(../images/Irish-Carrots-1.jpg); */
     /* background-image: url(../images/signup.jpg); */
+    /* background-color:black; */
+    background-image: url(../images/signup.jpg);
     background-image: blur;
 }
 
