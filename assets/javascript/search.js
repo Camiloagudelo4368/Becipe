@@ -35,7 +35,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 var favoritesRecipeIdList = [];
 var favoritesRecipeIdListUrl = '';
-var _urlEmptyFavImage = "assets/images/heart-empty.png";
+var _urlEmptyFavImage = "assets/images/empty_heart.png";
 var _urlFilledFavImage = "assets/images/heart-filled.png";
 var allowedIngredients = [];
 var onFavorites = false;

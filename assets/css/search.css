@@ -81,6 +81,12 @@ header {
     margin-bottom: 50px;
 }
 
+
+.favImage{
+    width: 30px;
+    height: 30px;
+ }
+
 .favImage:hover {
     cursor: pointer;
 }
