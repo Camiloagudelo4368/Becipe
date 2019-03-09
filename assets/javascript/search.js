@@ -14,18 +14,23 @@ firebase.initializeApp(config);
 var database = firebase.database();
 var favoritesRef = database.ref("/favorites");
 var userId = "";
+var userActive
 
 firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-
+    if (user) {        
         // console.log(user)
         // console.log(user.uid);   // this prints fine
         // console.log(user.displayName);   // this prints fine
 
         $("#userName").text("Hello " + user.displayName);
-        userId = user.uid;
+        userId = user.uid;        
+        $(".signInSignUpLinks").hide();
+        userActive = true;
         $("#favoritesLink").show();
-    } else {
+        
+    } else {        
+        $(".signInSignUpLinks").show();
+        userActive = false;
         $("#favoritesLink").hide();
         // No user is signed in.
     }
@@ -70,7 +75,6 @@ function createButtons(_array) {
 
         searchRecipe();
     });
-
 }
 
 // change the bottom text to delete
@@ -115,7 +119,7 @@ $("#insert").on("click", function (event) {
             createButtons(allowedIngredients);
 
             onFavorites = false;
-
+                       
         }
         else {
             // show message on modal
@@ -194,27 +198,54 @@ function searchRecipe() {
 
                     var elementId = _element.id;
 
-                    $(".images").append(
-                        `<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                    <div class=" card_content card text-center">
-                        <div class="card-header">
-                            ${_title}
+                    if (userActive) {
+                        $(".images").append(
+                            `<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <div class=" card_content card text-center">
+                            <div class="card-header">
+                                ${_title}
+                            </div>
+                            <div class="card-body">
+                                <img id="img${i}" class="responseImage card-img-top" src="${_urlImage}" active="0" data-web="${_urlYumm}">                        
+                            </div>
+                            <div class="card-footer text-muted">
+                                <div class="row">
+                                    <div class="col-6 text-left">
+                                        Rating: ${_rating}
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <img id="favImg${i}" class="favImage" onclick="addFavorites('${elementId.trim()}', 'favImg${i}')" src="${_urlEmptyFavImage}" active="0">
+                                    </div>
+                                </div>                                                
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <img id="img${i}" class="responseImage card-img-top" src="${_urlImage}" active="0" data-web="${_urlYumm}">                        
+                    </div>`);
+                    }
+                    else
+                    {
+                        $(".images").append(
+                            `<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <div class=" card_content card text-center">
+                            <div class="card-header">
+                                ${_title}
+                            </div>
+                            <div class="card-body">
+                                <img id="img${i}" class="responseImage card-img-top" src="${_urlImage}" active="0" data-web="${_urlYumm}">                        
+                            </div>
+                            <div class="card-footer text-muted">
+                                <div class="row">
+                                    <div class="col-6 text-left">
+                                        Rating: ${_rating}
+                                    </div>                                    
+                                </div>                                                
+                            </div>
                         </div>
-                        <div class="card-footer text-muted">
-                            <div class="row">
-                                <div class="col-6 text-left">
-                                    Rating: ${_rating}
-                                </div>
-                                <div class="col-6 text-right">
-                                    <img id="favImg${i}" class="favImage" onclick="addFavorites('${elementId.trim()}', 'favImg${i}')" src="${_urlEmptyFavImage}" active="0">
-                                </div>
-                            </div>                                                
-                        </div>
-                    </div>
-                </div>`);
+                    </div>`);
+                    }
+                
+                
+
+                    
                 }
             })
     }
@@ -298,19 +329,18 @@ function retrieveFavorites() {
 
     favoritesRecipeIdList = [];
 
-    var leadsRef = database.ref('favorites');
+    var favoritesRef = database.ref('favorites');
 
-    leadsRef.on('value', function (snapshot) {
+    favoritesRef.on('value', function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
 
             if (userId === childSnapshot.val().userId) {
                 // Insert the recipe id to the array
                 favoritesRecipeIdList.push(childSnapshot.val().recipeId);
             }
-
         });
     });
-    // call ajax function after 1 second to resolve conflicts
+    // call ajax function after 1 second to resolve priority conflicts
     setTimeout(callAjax, 1000);
 }
 
@@ -344,7 +374,7 @@ function callAjax() {
                         ${_title}
                     </div>
                     <div class="card-body">
-                        <img id="img${i}" class="responseImage card-img-top" src="${_urlImage}" active="0" data-still="${_urlYumm}">                        
+                        <img id="img${i}" class="responseImage card-img-top" src="${_urlImage}" active="0" data-web="${_urlYumm}">                        
                     </div>
                     <div class="card-footer text-muted">
                         <div class="row">
