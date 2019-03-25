@@ -54,6 +54,10 @@ var excludedIngredients = [
     "apple"
 ];
 
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false });
+});
+
 /**
  *
 Create buttons of the elements in an array  
@@ -251,7 +255,6 @@ function searchRecipe() {
     }
 };
 
-
 // event for each image
 $(document).on("click", ".responseImage", event => {
 
@@ -261,7 +264,6 @@ $(document).on("click", ".responseImage", event => {
     window.location.href = _image.attr("data-web");
 
 });
-
 
 /**
  *
@@ -307,8 +309,6 @@ function addFavorites(recipeId, imgId) {
         }
     }
 }
-
-
 
 // Retrieve the favorites recipes and populate them in same way the original search
 $("#favoritesLink").on("click", event => {

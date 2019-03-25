@@ -24,7 +24,8 @@ body {
  }
 
 .container {
-    max-width: 960px;
+    max-width: 960px;    
+    border-radius: 5px;
     /* margin: O auto; */
     /* margin-bottom: 1Opx; */
     /* margin-bottom:50px; */
@@ -76,6 +77,7 @@ header {
 
 .card_content {
     margin-top: 10px;
+    
     /* height: 350px; */
 }
 
