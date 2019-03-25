@@ -4,6 +4,7 @@ body {
     padding: 0;
     background: no-repeat center center fixed;
     background-size: cover;
+    background-color:#d9d5ca;
     /* background-image: url(../images/Irish-Carrots-1.jpg); */
     /* background-image: url(../images/signup.jpg); */
     /* background-color:black; */
@@ -24,7 +25,8 @@ body {
  }
 
 .container {
-    max-width: 960px;
+    max-width: 960px;    
+    border-radius: 5px;
     /* margin: O auto; */
     /* margin-bottom: 1Opx; */
     /* margin-bottom:50px; */
@@ -76,6 +78,7 @@ header {
 
 .card_content {
     margin-top: 10px;
+    
     /* height: 350px; */
 }
 
