@@ -18,9 +18,6 @@ var userActive
 
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        // console.log(user)
-        // console.log(user.uid);   // this prints fine
-        // console.log(user.displayName);   // this prints fine
 
         $("#userName").text("Hello " + user.displayName);
         userId = user.uid;
@@ -32,7 +29,6 @@ firebase.auth().onAuthStateChanged(function (user) {
         $(".signInSignUpLinks").show();
         userActive = false;
         $("#favoritesLink").hide();
-        // No user is signed in.
     }
 });
 

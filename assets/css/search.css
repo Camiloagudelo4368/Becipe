@@ -1,23 +1,10 @@
 body {
     margin: 10px, 0, 20px 0;
-    /* margin-bottom: 1O0px; */
     padding: 0;
-    /* background: url(../images/signup.jpg) no-repeat center center fixed; */
-    /* background-size: cover;
-    background-attachment: fixed; */
-    /* background-image: url(../images/Irish-Carrots-1.jpg); */
-    /* background-image: url(../images/signup.jpg); */
-    /* background-color:black; */
-    /* background-image: url(../images/signup.jpg); */
-    /* background-image: blur; */
-
 }
 
 #background_wrap {
-    z-index: -1;
     position: fixed;
-    top: 0;
-    left: 0;
     height: 100%;
     width: 100%;
     background-image: url(../images/signup.jpg);
@@ -45,9 +32,6 @@ body {
 .container {
     max-width: 960px;
     border-radius: 5px;
-    /* margin: O auto; */
-    /* margin-bottom: 1Opx; */
-    /* margin-bottom:50px; */
 }
 
 header {
