@@ -166,12 +166,13 @@ var searchRecipe = function () {
             excludedIngredientsUrl += "&excludedIngredient=" + excludedIngredients[i]
         };
 
-        console.log("Allowed: " + allowedIngredients);
-        console.log("Excluded: " + excludedIngredients);
+        // console.log("Allowed: " + allowedIngredients);
+        // console.log("Excluded: " + excludedIngredients);
 
         // Call the API
         $.ajax({
-            url: "https://api.yummly.com/v1/api/recipes?_app_id=ab4906ff&_app_key=25c71a2c8b446d9ef17b082ae3451972&requirePictures=true&q=" + allowedIngredients[0] + allowedIngredientsUrl + excludedIngredientsUrl,
+            // url: "https://api.yummly.com/v1/api/recipes?_app_id=ab4906ff&_app_key=25c71a2c8b446d9ef17b082ae3451972&requirePictures=true&q=" + allowedIngredients.pop() + allowedIngredientsUrl + excludedIngredientsUrl,
+            url: "https://api.yummly.com/v1/api/recipes?_app_id=ab4906ff&_app_key=25c71a2c8b446d9ef17b082ae3451972&requirePictures=true&q=" + lastOnArray(allowedIngredients),
             method: "GET",
             dataType: "JSONP"
         })
@@ -384,6 +385,17 @@ function clearSearch() {
     $(".buttons").empty();
     $("#txtSearch").val("");
     allowedIngredients = [];
+}
+
+
+/**
+ *Returns the last element on an array
+ *
+ * @param {*} _array array
+ * @returns
+ */
+function lastOnArray(_array){
+    return _array[_array.length - 1];
 }
 
 var excludedIngredients =
