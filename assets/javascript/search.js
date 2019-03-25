@@ -149,7 +149,7 @@ var searchRecipe = function () {
 
         for (var i = 0; i < allowedIngredients.length; i++) {
             // Add allowed ingredients
-            allowedIngredientsUrl += "&allowedIngredient=" + allowedIngredients[i]
+            allowedIngredientsUrl += "&allowedIngredient[]=" + allowedIngredients[i]
 
             // store the index of element to be remove from excluded ingredients
             var idOfIngredientToRemove = excludedIngredients.indexOf(allowedIngredients[i]);
@@ -163,7 +163,7 @@ var searchRecipe = function () {
         for (var i = 0; i < excludedIngredients.length; i++) {
 
             //Format the url to send it into API request as excluded elements 
-            excludedIngredientsUrl += "&excludedIngredient=" + excludedIngredients[i]
+            excludedIngredientsUrl += "&excludedIngredient[]=" + excludedIngredients[i]
         };
 
         // console.log("Allowed: " + allowedIngredients);
