@@ -17,18 +17,18 @@ var userId = "";
 var userActive
 
 firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {        
+    if (user) {
         // console.log(user)
         // console.log(user.uid);   // this prints fine
         // console.log(user.displayName);   // this prints fine
 
         $("#userName").text("Hello " + user.displayName);
-        userId = user.uid;        
+        userId = user.uid;
         $(".signInSignUpLinks").hide();
         userActive = true;
         $("#favoritesLink").show();
-        
-    } else {        
+
+    } else {
         $(".signInSignUpLinks").show();
         userActive = false;
         $("#favoritesLink").hide();
@@ -45,17 +45,9 @@ var _urlFilledFavImage = "assets/images/heart-filled.png";
 var allowedIngredients = [];
 var onFavorites = false;
 
-var excludedIngredients = [
-    "rice",
-    "beef",
-    "chicken",
-    "pork",
-    "carrot",
-    "apple"
-];
 
-$(document).ready(function(){
-	$.ajaxSetup({ cache: false });
+$(document).ready(function () {
+    $.ajaxSetup({ cache: false });
 });
 
 /**
@@ -123,7 +115,7 @@ $("#insert").on("click", function (event) {
             createButtons(allowedIngredients);
 
             onFavorites = false;
-                       
+
         }
         else {
             // show message on modal
@@ -145,7 +137,7 @@ $("#clearText").on("click", function (event) {
 })
 
 // search recipe function
-function searchRecipe() {
+var searchRecipe = function () {
     event.preventDefault();
 
     if (allowedIngredients.length === 0) {
@@ -179,9 +171,9 @@ function searchRecipe() {
 
         // Call the API
         $.ajax({
+            url: "https://api.yummly.com/v1/api/recipes?_app_id=ab4906ff&_app_key=25c71a2c8b446d9ef17b082ae3451972&requirePictures=true&q=" + allowedIngredients[0] + allowedIngredientsUrl + excludedIngredientsUrl,
             method: "GET",
-            url: "https://api.yummly.com/v1/api/recipes?_app_id=ab4906ff&_app_key=25c71a2c8b446d9ef17b082ae3451972&requirePictures=true" + allowedIngredientsUrl + excludedIngredientsUrl
-
+            dataType: "JSONP"
         })
             .then(function (response) {
 
@@ -225,8 +217,7 @@ function searchRecipe() {
                         </div>
                     </div>`);
                     }
-                    else
-                    {
+                    else {
                         $(".images").append(
                             `<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <div class=" card_content card text-center">
@@ -246,10 +237,6 @@ function searchRecipe() {
                         </div>
                     </div>`);
                     }
-                
-                
-
-                    
                 }
             })
     }
@@ -398,3 +385,249 @@ function clearSearch() {
     $("#txtSearch").val("");
     allowedIngredients = [];
 }
+
+var excludedIngredients =
+    [
+        "Butter",
+        "Butter oil",
+        "Cheese",
+        "Cheese food",
+        "Cheese spread",
+        "Cream",
+        "Eggnog",
+        "Sour dressing",
+        "Milk",
+        "Cream substitute",
+        "Dessert topping",
+        "Sour cream",
+        "Milk substitutes",
+        "Milk shakes",
+        "Whey",
+        "Yogurt",
+        "Egg",
+        "Egg substitute",
+        "Cheese substitute",
+        "Cheese sauce",
+        "USDA Commodity",
+        "Parmesan cheese topping",
+        "Reddi Wip Fat Free Whipped Topping",
+        "Egg Mix",
+        "Cheese product",
+        "Protein supplement",
+        "Dulce de Leche",
+        "Ice cream",
+        "Ice cream sandwich",
+        "Ice cream cookie sandwich",
+        "Ice cream cone",
+        "Fat free ice cream",
+        "Milk dessert bar",
+        "Nutritional supplement for people with diabetes",
+        "Dairy",
+        "Ice cream bar",
+        "Queso cotija",
+        "Spices",
+        "Basil",
+        "Dill weed",
+        "Mustard",
+        "Salt",
+        "Vinegar",
+        "Thyme",
+        "Vanilla extract",
+        "Capers",
+        "Horseradish",
+        "Rosemary",
+        "Peppermint",
+        "Spearmint",
+        "PACE",
+        "Seasoning mix",
+        "Babyfood",
+        "Zwieback",
+        "Infant formula",
+        "Child formula",
+        "Baby food",
+        "Toddler formula",
+        "Fat",
+        "Lard",
+        "Salad dressing",
+        "Sandwich spread",
+        "Shortening",
+        "Oil",
+        "Margarine",
+        "Margarine-like",
+        "Vegetable oil",
+        "Shortening bread",
+        "Shortening cake mix",
+        "Shortening industrial",
+        "Shortening frying (heavy duty)",
+        "Shortening confectionery",
+        "Shortening household soybean (hydrogenated) and palm",
+        "Fish oil",
+        "Meat drippings (lard",
+        "Animal fat",
+        "Margarine-like spread with yogurt",
+        "Margarine Spread",
+        "Margarine-like shortening",
+        "USDA Commodity Food",
+        "Margarine-like spread",
+        "Margarine-like vegetable-oil spread",
+        "Dressing",
+        "Mayonnaise",
+        "Chicken",
+        "Canada Goose",
+        "Duck",
+        "Goose",
+        "Guinea hen",
+        "Pheasant",
+        "Quail",
+        "Squab",
+        "Turkey",
+        "Turkey from whole",
+        "Pate de foie gras",
+        "Turkey and gravy",
+        "Turkey patties",
+        "Turkey breast",
+        "Turkey thigh",
+        "Turkey roast",
+        "Turkey sticks",
+        "Poultry",
+        "Ground turkey",
+        "Chicken patty",
+        "Chicken breast tenders",
+        "USDA Commodity Chicken",
+        "Ruffed Grouse",
+        "Emu",
+        "Ostrich",
+        "Soup",
+        "CAMPBELL'S Red and White",
+        "HEALTHY REQUEST",
+        "CAMPBELL'S",
+        "Sauce",
+        "Gravy",
+        "Split pea soup",
+        "Split pea with ham soup",
+        "PREGO Pasta",
+        "P REGO Pasta",
+        "Fish broth",
+        "Potato soup",
+        "Barbecue loaf",
+        "Beerwurst",
+        "Sausage",
+        "Blood sausage",
+        "Bockwurst",
+        "Bologna",
+        "Bratwurst",
+        "Braunschweiger (a liver sausage)",
+        "Brotwurst",
+        "Cheesefurter",
+        "Chicken roll",
+        "Chicken spread",
+        "Chorizo",
+        "Corned beef loaf",
+        "Dutch brand loaf",
+        "Frankfurter",
+        "Ham",
+        "Ham salad spread",
+        "Ham and cheese loaf or roll",
+        "Ham and cheese spread",
+        "Headcheese",
+        "Kielbasa",
+        "Knackwurst",
+        "Lebanon bologna",
+        "Liver cheese",
+        "Liver sausage",
+        "Luncheon meat",
+        "Roast beef",
+        "Mortadella",
+        "Olive loaf",
+        "Pastrami",
+        "Pate",
+        "Peppered loaf",
+        "Pepperoni",
+        "Pickle and pimiento loaf",
+        "Polish sausage",
+        "Luxury loaf",
+        "Mother's loaf",
+        "Picnic loaf",
+        "Pork sausage",
+        "Pork and beef sausage",
+        "Turkey sausage",
+        "Poultry salad sandwich spread",
+        "Salami",
+        "Smoked link sausage",
+        "Thuringer",
+        "Turkey ham",
+        "Turkey roll",
+        "Honey roll sausage",
+        "Luncheon sausage",
+        "New england brand sausage",
+        "OSCAR MAYER",
+        "OSCAR MAYER. Bologna (Wisconsin made ring)",
+        "LOUIS RICH",
+        "Turkey bacon",
+        "BUTCHER BOY MEATS",
+        "CARL BUDDIG",
+        "CARL BUDDIG. Cooked Smoked Beef Pastrami",
+        "HORMEL SPAM",
+        "HORMEL Pillow Pak Sliced Turkey Pepperoni",
+        "HORMEL WRANGLER Beef Franks",
+        "Liverwurst spread",
+        "Roast beef spread",
+        "Swisswurst",
+        "Bacon and beef sticks",
+        "Yachtwurst",
+        "Chicken breast",
+        "Oven-roasted chicken breast roll",
+        "Macaroni and cheese loaf",
+        "Scrapple",
+        "Beef sausage",
+        "Pork and turkey sausage",
+        "Meatballs",
+        "Cereals ready-to-eat",
+        "Cereals",
+        "Milk and cereal bar",
+        "Rice and Wheat cereal bar",
+        "Incaparina",
+        "Acerola",
+        "Acerola juice",
+        "Apples",
+        "Apple juice",
+        "Applesauce",
+        "Apricots",
+        "Apricot nectar",
+        "Avocados",
+        "Bananas",
+        "Blackberries",
+        "Blackberry juice",
+        "Cherries",
+        "Blueberries",
+        "Boysenberries",
+        "Breadfruit",
+        "Carambola",
+        "Carissa",
+        "Cherimoya",
+        "Crabapples",
+        "Cranberries",
+        "Cranberry sauce",
+        "Cranberry-orange relish",
+        "Currants",
+        "Custard-apple",
+        "Dates",
+        "Elderberries",
+        "Figs",
+        "Fruit cocktail",
+        "Fruit salad",
+        "Gooseberries",
+        "Grapefruit",
+        "Grapefruit juice",
+        "Grapes",
+        "Grape juice",
+        "Groundcherries",
+        "Guavas",
+        "Guava sauce",
+        "Jackfruit",
+        "Java-plum",
+        "Jujube",
+        "Kiwifruit",
+        "Kumquats",
+        "Lemons",
+    ]
