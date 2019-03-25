@@ -191,12 +191,10 @@ var searchRecipe = function () {
         // console.log(isBrowser)
 
         if (isMobile()) {
-            urlAPI =  "https://api.yummly.com/v1/api/recipes?_app_id=ab4906ff&_app_key=25c71a2c8b446d9ef17b082ae3451972&requirePictures=true&q=" + qUrl
-            $("#isBrowser").text("Mobile device");
+            urlAPI =  "https://api.yummly.com/v1/api/recipes?_app_id=ab4906ff&_app_key=25c71a2c8b446d9ef17b082ae3451972&requirePictures=true&q=" + qUrl            
         }
         else{
-            urlAPI =  "https://api.yummly.com/v1/api/recipes?_app_id=ab4906ff&_app_key=25c71a2c8b446d9ef17b082ae3451972&requirePictures=true&q=" + qUrl + allowedIngredientsUrl + excludedIngredientsUrl
-            $("#isBrowser").text("No is mobile");
+            urlAPI =  "https://api.yummly.com/v1/api/recipes?_app_id=ab4906ff&_app_key=25c71a2c8b446d9ef17b082ae3451972&requirePictures=true&q=" + qUrl + allowedIngredientsUrl + excludedIngredientsUrl 
         }
         
         // Call the API

@@ -2,13 +2,13 @@ body {
     margin: 10px, 0, 20px 0;
     /* margin-bottom: 1O0px; */
     padding: 0;
-    background: no-repeat center center fixed;
+    background: url(../images/signup.jpg) no-repeat center center fixed;
     background-size: cover;
     /* background-image: url(../images/Irish-Carrots-1.jpg); */
     /* background-image: url(../images/signup.jpg); */
     /* background-color:black; */
-    background-image: url(../images/signup.jpg);
-    background-image: blur;
+    /* background-image: url(../images/signup.jpg); */
+    /* background-image: blur; */
 }
 
 #appName {
